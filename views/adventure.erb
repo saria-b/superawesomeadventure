@@ -1,0 +1,61 @@
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<h1> Location </h1>
+<p><%= "Hello, " + userName + ", it's awesome to meet you!" %> </p>
+<p><%= "I'm #{unicornName}, the #{descriptor} #{typeOfUnicorn}." %></p>
+</body>
+
+
+<button class="location-button" id="forest"> The forest</button>
+
+<button class="location-button"  id="crystal_field">The field of crystals</button>
+
+<button class="location-button" id="beach"> Seitanic Beach</button>
+
+
+<p id="location-message"> </p>
+
+<form action="/angry" method="get">
+  <input id='angry_button' class="button" type="submit" value="What's next...?">
+</form>
+
+<script>
+      $('#angry_button').hide();
+
+    $('#forest').on('click', function() {
+        button_fade();
+        $('#location-message').text(" Awesome, I love going to the forest");
+        button_show();
+    });
+    $('#crystal_field').on('click', function() {
+        button_fade();
+        $('#location-message').text(" Oh lovely, the Crystal Field is so so pretty.");
+        button_show();
+    });
+    $('#beach').on('click', function() {
+        button_fade();
+        $('#location-message').text("Hell fucking yes! Hail Seitan! ");
+        button_show();
+
+    });
+
+    function button_fade() {
+        $('.location-button').fadeOut(500);
+    }
+
+    function button_show() {
+        $('#angry_button').show();
+    }
+
+</script>
+
+</html>
+
+
+
+
+
+

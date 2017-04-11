@@ -1,0 +1,60 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<h1> Location </h1>
+<p><%= "After that adventure #{unicornName} and #{userName} felt it was a good time to caffeinate" %> </p>
+<p><%= "#{unicornName} decided to get a #{unicornDrink}.\n 'What would you like, #{userName}?', asked #{unicornName}." %></p>
+
+<form>
+  <input id="drink_preference">
+  <input id='drink_button' class="button" type="submit" value="Barkeep!">
+</form>
+
+<p id="thanks"></p>
+
+<form action="/caffeine" method="get">
+  <input id='caffeinate-button' class="button" type="submit" value="Phew! Let's keep going!">
+</form>
+</body>
+
+<script>
+    $('#caffeinate-button').hide();
+    var drink_preference;
+
+    $('#drink_button').on('click', function(){
+       drink_preference = $('#drink_preference').val()
+        $('#thanks').text('<%="Thanks #{unicornName}, I would love a "%>' + drink_preference + '.')
+    });
+
+    
+    //    var $angryMessage ="";
+//    $('#scratches').on('click', function() {
+//        button_fade();
+//        $('#angry-message').text('<%= "Yes, everyone loves scratches. The #{angryCreature} is loving it." %>');
+//        button_show();
+//
+//    });
+//    $('#food').on('click', function() {
+//        button_fade();
+//        $('#angry-message').text("<%= "'Nom nom', said the #{angryCreature}, 'I love eating #{creatureSnack}. Thank you #{userName} and #{unicornName}'" %>");
+//        button_show();
+//    });
+//    $('#runaway').on('click', function() {
+//        button_fade();
+//        $('#angry-message').text(" <%= "'Scamper, scamper, scamper , scamper, SCAMPER', shrieked #{unicornName} as they and #{userName} ran away from the terrrifying #{angryCreature}." %>");
+//        button_show();
+//    });
+//
+//
+//    function button_fade() {
+//        $('.location-button').fadeOut(500);
+//    }
+//
+//    function button_show() {
+//        $('#caffeinate.]-button').show();
+//    }
+
+</script>
+
+</html>

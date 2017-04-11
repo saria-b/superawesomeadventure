@@ -1,0 +1,54 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<h1> Location </h1>
+<p><%= "Oh no, there is an angry #{angryCreature} blocking the path.\n
+What shall we do? "%></p>
+
+<button class="location-button" id="scratches"> Give it scratches?</button>
+
+<button class="location-button"  id="food">Give it food?</button>
+
+<button class="location-button" id="runaway"> Run away?</button>
+
+
+<p id="angry-message"> </p>
+
+<form action="/caffeine" method="get">
+  <input id='caffeinate-button' class="button" type="submit" value="Phew! Let's keep going!">
+</form>
+</body>
+
+<script>
+    $('#caffeinate-button').hide();
+//    var $angryMessage ="";
+    $('#scratches').on('click', function() {
+        button_fade();
+        $('#angry-message').text('<%= "Yes, everyone loves scratches. The #{angryCreature} is loving it." %>');
+        button_show();
+
+    });
+    $('#food').on('click', function() {
+        button_fade();
+        $('#angry-message').text("<%= "'Nom nom', said the #{angryCreature}, 'I love eating #{creatureSnack}. Thank you #{userName} and #{unicornName}'" %>");
+        button_show();
+    });
+    $('#runaway').on('click', function() {
+        button_fade();
+        $('#angry-message').text(" <%= "'Scamper, scamper, scamper , scamper, SCAMPER', shrieked #{unicornName} as they and #{userName} ran away from the terrrifying #{angryCreature}." %>");
+        button_show();
+    });
+
+
+    function button_fade() {
+        $('.location-button').fadeOut(500);
+    }
+
+    function button_show() {
+        $('#caffeinate-button').show();
+    }
+
+</script>
+
+</html>
