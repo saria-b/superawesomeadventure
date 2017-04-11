@@ -1,62 +1,19 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'JSON'
-
+require './choices'
 configure do
   enable :sessions
 end
 
 get '/' do
-  unicorn_name = [
-      "Sparkles",
-      "Glitterbomb",
-      "Daisy",
-      "Amethyst",
-  ].sample
-  session[:unicorn_name] = unicorn_name
-
-  descriptor = [
-      "most amazing",
-      "super duper fucking awesome",
-      "precocious",
-  ].sample
-  session[:unicorn_descriptor] = descriptor
-
-  type_of_unicorn = [
-      "fluffy clydesdale-corn",
-      "pink unicorn",
-      "death metal unicorn of darkness",
-  ].sample
-  session[:type_of_unicorn] = type_of_unicorn
-  angry_creature = [
-      "tiger",
-      "kitten",
-      "snail",
-      "sloth",
-  ].sample
-  session[:angry_creature] = angry_creature
-  creature_snack = [
-      "chocolate",
-      "bibimbap",
-      "ramen",
-      "cake-e-o",
-      "kale",
-      "nooch nooch nooch",
-      "crispy tofu",
-  ].sample
-  session[:creature_snack] = creature_snack
-  unicorn_drink = [
-      "mocha mochie mocha",
-      "matchie matcha latte",
-      "catspresso",
-      "kitty latte",
-      "long cat black",
-      'glitter feine fuzzbucket',
-  ].sample
-  session[:unicorn_drink] = unicorn_drink
+  session[:unicorn_name] = Choices.unicorn_names.sample
+  session[:unicorn_descriptor] = Choices.unicorn_descriptor.sample
+  session[:type_of_unicorn] = Choices.type_of_unicorn.sample
+  session[:angry_creature] = Choices.angry_creature.sample
+  session[:creature_snack] = Choices.creature_snack.sample
+  session[:unicorn_drink] = Choices.unicorn_drink.sample
   erb :default
-
-
 end
 
 post '/setUserName' do
